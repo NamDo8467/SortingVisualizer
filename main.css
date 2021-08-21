@@ -1,0 +1,28 @@
+.html, body{
+    height:100vh;
+}
+.container{
+    position: relative;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.number-list{
+    /* border:2px solid black;  */
+    position: relative;
+    left:40%;
+    transform: translateX(-25%);
+    height:250px;
+
+}
+
+.number-list input{
+    position: relative;
+    height:40px;
+    width:40px;
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+    top:40%;
+
+}
