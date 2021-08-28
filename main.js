@@ -2,17 +2,24 @@ const startButton = document.querySelector(".start-btn");
 const randomButton = document.querySelector(".random-list");
 let numbers = document.querySelectorAll("input");
 const numberList = document.querySelector(".number-list");
-let arrayOfNumber = [];
-// numbers.forEach((input) => {
-//   input.readOnly = "true";
-//   input.value = Math.floor(Math.random() * 10);
-//   arrayOfNumber.push(input.value);
-// });
+let isSorting = false;
 
 function delay(millisecond) {
   return new Promise((resolve) => setTimeout(resolve, millisecond));
 }
-const startSorting = (number1, number2, currentIndex, nextIndex) => {
+const sort = async () => {
+  console.log("hello");
+  isSorting = true;
+  let numbers = document.querySelectorAll("input");
+  let count = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = 0; j < numbers.length - 1; j++) {
+      startSorting(numbers[j], numbers[j + 1], j, j + 1);
+      await delay(3000);
+    }
+  }
+};
+const startSorting = (number1, number2) => {
   number1.style.top = "10%";
   number1.style.transition = "top 1s ease";
 
@@ -38,24 +45,26 @@ const startSorting = (number1, number2, currentIndex, nextIndex) => {
       number1.style.top = "40%";
       number1.style.transition = "transform 1s ease, top 1s ease";
     }
-  }, 2000); 
+  }, 2000);
 };
-startButton.addEventListener("click", async () => {
-  let count = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    console.log(i);
-    for (let j = 0; j < numbers.length - 1; j++) {
-      startSorting(numbers[j], numbers[j + 1], j, j + 1);
-      await delay(3000);
-      // console.log(count);
-    }
-  }
-});
+startButton.addEventListener("click", sort);
 
 randomButton.addEventListener("click", () => {
-  numbers.forEach((number) => {
-    number.value = Math.floor(Math.random() * 10);
-    arrayOfNumber.shift();
-    arrayOfNumber.push(number.value);
-  });
+  if (isSorting == true) {
+    let numbers = document.querySelectorAll("input");
+    numbers.forEach((number) => {
+      number.remove();
+    });
+    for (let i = 0; i < 5; i++) {
+      let newInput = document.createElement("input");
+      newInput.value = Math.floor(Math.random() * 10);
+      numberList.appendChild(newInput);
+    }
+    isSorting = false;
+  } else {
+    let numbers = document.querySelectorAll("input");
+    numbers.forEach((number) => {
+      number.value = Math.floor(Math.random() * 10);
+    });
+  }
 });
