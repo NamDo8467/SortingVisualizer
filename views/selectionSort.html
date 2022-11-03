@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sorting Visualizer</title>
+		<link rel="stylesheet" href="../main.css" />
+		<link rel="stylesheet" href="../selectionSort.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Sorting Visualizer</h1>
+			<div class="change-theme-color-button">
+				<div class="inner-circle">
+					<div class="inner-inner-circle"></div>
+				</div>
+			</div>
+			<nav class="main-nav">
+				<ul>
+					<li>Bubble Sort</li>
+					<li class="active">Selection Sort</li>
+					<li>Insertion Sort</li>
+					<li>Merge Sort</li>
+					<li>Quick Sort</li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="container">
+			<div class="squares-container">
+				<ul class="number-list">
+					<!-- <div class="current-smallest">
+						
+						
+					</div> -->
+					<div id="current-smallest-pointer"></div>
+					<input type="text" />
+					<!-- <div class="current-number"></div> -->
+					<input type="text" />
+					<input type="text" />
+					<input type="text" />
+					<input type="text" />
+				</ul>
+			</div>
+			<div class="buttons">
+				<button class="start-btn">Start sorting</button>
+				<button class="random-list">Generate random list</button>
+			</div>
+			<div class="analysis">
+				<br />
+				<span>Number of swaps: </span><span class="swaps">0</span> <br /><br />
+				<span>Number of rounds: </span><span class="rounds">0</span> <br /><br />
+			</div>
+		</div>
+	</body>
+	<script type="module" src="../scripts/main.js"></script>
+	<script type="module" src="../scripts/selectionSort.js"></script>
+	<script src="../scripts/changeTheme.js"></script>
+	<script src="../scripts/navBarEffect.js"></script>
+	<!-- <script src="test.js"></script> -->
+</html>
