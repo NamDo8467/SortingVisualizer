@@ -11,7 +11,7 @@ body {
 
 .change-body-background-dark {
     transition: background-color 0.5s ease-in;
-    background-color: rgb(136, 133, 133);
+    background-color: rgb(118, 115, 115);
 }
 .change-body-background-light {
     transition: background-color 0.5s ease-in;
